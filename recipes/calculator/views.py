@@ -33,6 +33,8 @@ DATA = {
 #   }
 # }
 
+def index(request):
+    return HttpResponse(f'')
 
 def recipes_omlet(request):
     return HttpResponse(f'')
