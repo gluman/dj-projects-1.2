@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
-from recipes.calculator.views import recipes_omlet, recipes_pasta, index
+from calculator.views import recipes_omlet, recipes_pasta, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),

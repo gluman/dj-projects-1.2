@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import render
 from django.http import HttpResponse
 
@@ -23,6 +24,28 @@ DATA = {
 
 
 
+def index(request):
+    return HttpResponse('Hello')
+
+
+def calc(bludo, count):
+    recipe = DATA[bludo]
+    result = {}
+    for ing, val in recipe.items:
+        result = {ing:  val * count}
+    print(result)
+    return result
+def recipes_omlet(request):
+    count = int(request.GET.get('servings', 1))
+    context = calc('omlet', count)
+    return render(request, 'recipe.html', context)
+
+def recipes_pasta(request):
+    count = int(request.GET.get('servings', 1))
+    context = calc('pasta', count)
+    return render(request, 'recipe.html', context)
+
+
 # Напишите ваш обработчик. Используйте DATA как источник данных
 # Результат - render(request, 'calculator/index.html', context)
 # В качестве контекста должен быть передан словарь с рецептом:
@@ -32,13 +55,3 @@ DATA = {
 #     'ингредиент2': количество2,
 #   }
 # }
-
-def index(request):
-    return HttpResponse(f'')
-
-def recipes_omlet(request):
-    return HttpResponse(f'')
-
-
-def recipes_pasta(request):
-    return HttpResponse(f'')
