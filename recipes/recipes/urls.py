@@ -16,11 +16,11 @@ Including another URLconf
 """
 from django.urls import path
 from django.contrib import admin
-from calculator.views import recipes_omlet, recipes_pasta, index
+from calculator.views import index, recipe_
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index,  name='index'),
-    path('omlet/', recipes_omlet, name='omlet'),
-    path('pasta/', recipes_pasta, name='pasta'),
+    path('<bludo>/', recipe_, name='recipe_'),
+
 ]
