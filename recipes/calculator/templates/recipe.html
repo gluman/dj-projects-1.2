@@ -5,8 +5,8 @@
     <title>'Ответ'</title>
 </head>
 <body>
-{% for r in recipe%}
-{{ r }}
+{% for r, v in recipe.items%}
+<p>{{ r }}: {{ v }}</p>
 {% endfor %}
 </body>
 </html>

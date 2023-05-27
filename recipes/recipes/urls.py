@@ -20,7 +20,7 @@ from calculator.views import recipes_omlet, recipes_pasta, index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', index,  name='omlet'),
+    path('', index,  name='index'),
     path('omlet/', recipes_omlet, name='omlet'),
     path('pasta/', recipes_pasta, name='pasta'),
 ]

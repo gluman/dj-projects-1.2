@@ -31,18 +31,20 @@ def index(request):
 def calc(bludo, count):
     recipe = DATA[bludo]
     result = {}
-    for ing, val in recipe.items:
-        result = {ing:  val * count}
+    for ing, val in recipe.items():
+        result[ing] = val * count
     print(result)
     return result
 def recipes_omlet(request):
-    count = int(request.GET.get('servings', 1))
-    context = calc('omlet', count)
+    count = int(request.GET.get("servings", 1))
+    recipe = calc('omlet', count)
+    context = {'recipe': recipe}
     return render(request, 'recipe.html', context)
 
 def recipes_pasta(request):
     count = int(request.GET.get('servings', 1))
-    context = calc('pasta', count)
+    recipe = calc('pasta', count)
+    context = {'recipe': recipe}
     return render(request, 'recipe.html', context)
 
 
